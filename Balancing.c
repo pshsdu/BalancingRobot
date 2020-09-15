@@ -41,12 +41,12 @@ unsigned char lcd_data[40];
 //About ADC
 unsigned char adc_data[8] = {0, 0, 0, 0, 0, 0, 0, 0};  
 unsigned char mux = 0;
-unsigned char adc_max[8] = {0, 0, 0, 0, 0, 0, 0, 0}; //tuning¿¡¼­ ÃÖ´ë°ª ¹× ÃÖ¼Ò°ªÀ» ³Ö±â À§ÇÑ ¹è¿­
+unsigned char adc_max[8] = {0, 0, 0, 0, 0, 0, 0, 0}; //tuningì—ì„œ ìµœëŒ€ê°’ ë° ìµœì†Œê°’ì„ ë„£ê¸° ìœ„í•œ ë°°ì—´
 unsigned char adc_min[8] = {255, 255, 255, 255, 255, 255, 255, 255}; 
 unsigned char emit[8] = {0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x01};
-unsigned char adc_normal[8] = {0, 0, 0, 0, 0, 0, 0, 0}; //½ÇÁ¦·Î »ç¿ëÇÏ´Â adc°ª
+unsigned char adc_normal[8] = {0, 0, 0, 0, 0, 0, 0, 0}; //ì‹¤ì œë¡œ ì‚¬ìš©í•˜ëŠ” adcê°’
 float position = 0;
-signed int position_array[8] = {0, -25, -15, -5, 5, 15, 25, 0}; //positionÀÌ ¹İ´ëÀÎ °æ¿ì ÀÌ ¹è¿­À» ¹Ù²Ù¼¼¿ä 
+signed int position_array[8] = {0, -25, -15, -5, 5, 15, 25, 0}; //positionì´ ë°˜ëŒ€ì¸ ê²½ìš° ì´ ë°°ì—´ì„ ë°”ê¾¸ì„¸ìš” 
 float posGain = 50;
 float mutipliedPosition = 0; 
 
@@ -83,7 +83,7 @@ float SumAngErr = 0;
 
 //About Control flag
 float target = 0;
-unsigned char isNevigated = 0;
+unsigned char isNavigated = 0;
 int menu = 0; 
 
 //About Target Control
@@ -221,7 +221,7 @@ interrupt [TIM0_COMPA] void timer0_compa_isr(void)
 }
 
 // USART1 Receiver interrupt service routine
-interrupt [USART1_RXC] void usart1_rxc(void)   //IMU¿¡¼­ µé¾î¿À´Â ¼¾¼­ °ªÀ» ¹Ş¾ÆµéÀÌ´Â ÄÚµå
+interrupt [USART1_RXC] void usart1_rxc(void)   //IMUì—ì„œ ë“¤ì–´ì˜¤ëŠ” ì„¼ì„œ ê°’ì„ ë°›ì•„ë“¤ì´ëŠ” ì½”ë“œ
 {
         int buff = 0;
         buff = UDR1;
